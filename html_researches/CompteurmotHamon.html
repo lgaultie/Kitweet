@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .bloc_texte {
+        position:absolute;
+        top:10px;
+        left:10px;
+        width:50%;
+        height: 50%;
+        
+        font-family: courier;    /* courier alternatives google font, dans google-font taper typo "mono" */
+        line-height: 30px;
+      }
+
+    </style>
+     <script type="text/javascript" src="jquery-1.12.0.min.js"></script>    <!-- télécharger le jquery nécessaire c'est le append plus bas-->
+     
+
+  </head>
+  <body>
+    <div class="bloc_texte"></div>
+    <script>
+     $(document).ready(function(){
+		//var texte_base ="";
+    //commentaires fait par hamon durant le grand débat du 21 mars
+		var texte_base ="propose voter République bienveillante futur désirable ensemble battre cœur France vote utile vote utile propose de voter pour voter dépit défaillances République remédier foyers radicalisation territoire lutte terrorisme indispensable poursuivre le renforcement renseignement territorial PIB dépenses défense actions internationales propositions volonté claire maintenir capacités opérationnelles défense française penser protection sociale demain propose revenu universel éradiquera précarité actions implacables formes d'attaques santé environnement augmenterai allocation personnalisée autonomie domicile notre société nos concitoyens besoin familles seules face dépendance égal face risque dépendance créerai allocation «Bien vieillir en Ehpad» logique comptable ne peut être fil rouge  transformation système santé  veux l'accès soins pour tous milliers couples pas partir ensemble retraite l’un conjoints pas suffisamment cotisé veux justice soit faite ceux un métier pénible espérance vie plus courte doivent partir retraite plus tôt parlez diminution dette M. Fillon  500 000 fonctionnaires moins très fort soustractions ambition M. Fillon choisir pauvreté moyen créer emploi revenu universel agriculteur assistante maternelle percevait 50% SMIC pouvoir d’achat augmenter 397€ revenu universel jeune gagnait 231€ gagnera dorénavant 749€ veux penser protection sociale demain revenu universel éradiquera précarité serai candidat travail choisi décent serai le candidat travail feuille paie rémunération décente l'augmentation pouvoir d'achat je suis pour loi 1905 toute la loi 1905 rien que la loi 1905 je souhaite sortie nucléaire développer énergies renouvelables condition notre indépendance énergétique débat public pollué argent souffre temps prendre décisions moraliser vie publique engagez-vous M. Macron rendre publique liste donateurs prouver tenu par ceux vous financent je veux faire respirer notre démocratie nouveau citoyens doivent pouvoir faire irruption démocratie laïcité plus beaux principes notre République principe garantit notre vivre ensemble nous devons être démarche favorise intégration commerce électoral peuples nous n'avons pas été hauteur hospitalité nous devons réfugiés je veux visa humanitaire je veux donner justice moyens accomplir œuvre réinsertion solution tout carcéral détention rend parfois détenus plus dangereux sortie rétablirai police proximité créant 5 000 postes gendarmes policiers accepte pas notre République certains davantage contrôlés raison couleur peau faut rétablir police proximité travail difficile policiers zone sécurité prioritaire nécessite prime territoires personnes plus vulnérables plus besoin d'être protégées je veux associer enseignement privé discussions mixité sociale collège pas égalité sans mixité je veux associer enseignement privé discussions mixité sociale collège pas égalité sans mixité nous n'avons pas droit prendre école otage débat nauséabond Mme Le Pen fait je serai président juste finira politiques conçues toujours pour mêmes demandent toujours efforts mêmes répondre question quel président serez-vous ?, préfère répondre question peuple voulons-nous être";
+        var tableau_mots = texte_base.split(" ");
+        var compte_mots = new Array();
+    
+	
+    
+    
+        for (var i = 0; i<tableau_mots.length; i++) {
+          var stop = false;
+          for (var j = 0; j<compte_mots.length; j++) {
+            if (compte_mots[j][1] == tableau_mots[i]) {
+              stop = true;
+            }
+          }
+    
+          if (stop == false) {
+            var compteur = 0;
+            for (var j = 0; j<tableau_mots.length; j++) {
+                if (tableau_mots[i] == tableau_mots[j]) {
+                  compteur++;
+                }
+              } 
+            compte_mots.push([compteur, tableau_mots[i]]);
+          }
+        }
+    
+        // SUPPRIMER LES COMMENTAIRES POUR REMETTRE LES MOTS SUIVANT LE NOMBRE D'APPARITIONS
+        //compte_mots.sort(sortFunction);
+        
+        for (var i = 0; i<compte_mots.length; i++) {
+          $(".bloc_texte").append("<span style='font-size:"+compte_mots[i][0]*30+"px;'>"+compte_mots[i][1]+"</span> ");
+        }
+    
+        
+        console.log(compte_mots);
+    
+    
+        // FONCTION POUR REMETTRE LES MOTS SUIVANT LE NOMBRE D'APPARITIONS
+        function sortFunction(a, b) {
+            if (a[0] === b[0]) {
+                return 0;
+            }
+            else {
+                return (a[0] > b[0]) ? -1 : 1;
+            }
+        }
+
+
+
+});
+
+//cercle  Arctext.js curving text with CSS3 and jquery
+
+    </script>
+  </body>
+</html>      
